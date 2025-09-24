@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>MLBB Beginner's Portal — Anchors Fixed (No JS)</title>
+  <style>
+    :root {
+      --scroll-offset: 120px; /* adjust if your header+nav height differs */
+    }
+    @media (max-width: 600px) {
+      :root { --scroll-offset: 160px; } /* taller header on small screens */
+    }
+
+    /* Anchor spacer: invisible element that sits above the real content */
+    .anchor {
+      display: block;
+      position: relative;
+      top: calc(-1 * var(--scroll-offset));
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      visibility: hidden;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom right, #0a1a3c, #1e3a8a, #0f1c4d);
+      color: #f0f0f0;
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(to right, #1e3a8a, #0a1a3c);
+      color: #ffd700;
+      padding: 30px 20px;
+      text-align: center;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.6);
+    }
+    header h1 { margin: 0; font-size: 2.2em; text-shadow: 0 0 10px #ffd700; }
+
+    /* Nav */
+    nav {
+      background: #0d1736;
+      padding: 12px;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+      z-index: 1000;
+    }
+
+    /* Link color rules: default blue, no purple for visited, gold on hover/press */
+    nav a,
+    section ul li a {
+      color: #aad4ff;             /* default blue */
+      text-decoration: none;
+      margin: 0 12px;
+      font-weight: bold;
+      transition: 0.2s;
+    }
+    nav a:visited,
+    section ul li a:visited { color: #aad4ff; } /* prevent purple/violet */
+    nav a:hover,
+    nav a:active,
+    section ul li a:hover,
+    section ul li a:active {
+      color: #ffd700;             /* gold on hover/press */
+      text-shadow: 0 0 8px #ffd700;
+    }
+
+    .container { max-width: 900px; margin: auto; padding: 20px; }
+
+    /* Sections */
+    section {
+      padding: 30px 18px;
+      margin: 30px 0;
+      background: rgba(255,255,255,0.05);
+      border: 2px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.35);
+    }
+    section h2 { color: #ffd700; text-shadow: 0 0 5px #ffd700; }
+
+    /* Subtopic boxes */
+    .subtopic {
+      margin: 18px 0;
+      padding: 14px;
+      background: rgba(255,255,255,0.02);
+      border-left: 3px solid rgba(255,215,0,0.2);
+      border-radius: 8px;
+    }
+    .subtopic h3 { margin-top: 0; color: #ffd700; font-size: 1.05em; }
+
+    /* Form */
+    form {
+      background: rgba(255,255,255,0.07);
+      padding: 18px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+    form label { display:block; margin-bottom:8px; font-weight:700; color:#aad4ff; }
+    form input, form textarea {
+      width:100%; padding:10px; margin-bottom:12px; border:none; border-radius:8px;
+      background:#122046; color:#fff; outline:none;
+    }
+    form input::placeholder, form textarea::placeholder { color:#bbb; }
+    form button {
+      background:#1e3a8a; color:#ffd700; font-weight:700; border:none; padding:10px 18px;
+      border-radius:8px; cursor:pointer; transition:0.2s;
+    }
+    form button:hover { background:#0f1c4d; text-shadow:0 0 5px #ffd700; }
+
+    /* Footer */
+    footer {
+      background:#0a1a3c; color:#aad4ff; text-align:center; padding:20px; margin-top:40px;
+      border-top:2px solid #1e3a8a;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1>MLBB Beginner's Portal Tutorial</h1>
+    <p>Learn Mobile Legends mechanics, heroes, items, and strategies the right way!</p>
+  </header>
+
+  <!-- Navigation -->
+  <nav aria-label="Main Navigation">
+    <a href="#home">Home</a>
+    <a href="#heroes">Heroes</a>
+    <a href="#items">Items &amp; Emblems</a>
+    <a href="#gameplay">Gameplay &amp; Strategy</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <!-- Main container -->
+  <div class="container">
+
+    <!-- HOME -->
+    <span id="home" class="anchor" aria-hidden="true"></span>
+    <section>
+      <h2>Welcome!</h2>
+      <p>This website is all about <strong>Mobile Legends: Bang Bang</strong>. Explore guides on heroes, items, and gameplay strategies to improve your skills.</p>
+    </section>
+
+    <!-- HEROES (grouped) -->
+    <span id="heroes" class="anchor" aria-hidden="true"></span>
+    <section>
+      <h2>Heroes</h2>
+      <ul>
+        <li><a href="#hero-skills">Understanding Skills &amp; Attributes</a></li>
+        <li><a href="#hero-counter">Hero Counterparts</a></li>
+        <li><a href="#hero-best">Best Hero Combinations</a></li>
+      </ul>
+
+      <span id="hero-skills" class="anchor" aria-hidden="true"></span>
+      <div class="subtopic" tabindex="-1" aria-labelledby="hero-skills-heading">
+        <h3 id="hero-skills-heading">Hero Skills &amp; Attributes</h3>
+        <p>[Your content goes here]</p>
+      </div>
+
+      <span id="hero-counter" class="anchor" aria-hidden="true"></span>
+      <div class="subtopic" tabindex="-1" aria-labelledby="hero-counter-heading">
+        <h3 id="hero-counter-heading">Hero Counterparts</h3>
+        <p>[Your content goes here]</p>
+      </div>
+
+      <span id="hero-best" class="anchor" aria-hidden="true"></span>
+      <div class="subtopic" tabindex="-1" aria-labelledby="hero-best-heading">
+        <h3 id="hero-best-heading">Best Hero Combinations</h3>
+        <p>[Your content goes here]</p>
+      </div>
+    </section>
+
+    <!-- ITEMS (grouped) -->
+    <span id="items" class="anchor" aria-hidden="true"></span>
+    <section>
+      <h2>Items &amp; Emblems</h2>
+      <ul>
+        <li><a href="#item-attributes">Item &amp; Emblem Attributes</a></li>
+        <li><a href="#item-counter">Counter Items</a></li>
+        <li><a href="#item-builds">Best Builds</a></li>
+      </ul>
+
+      <span id="item-attributes" class="anchor" aria-hidden="true"></span>
+      <div class="subtopic" tabindex="-1" aria-labelledby="item-attributes-heading">
+        <h3 id="item-attributes-heading">Item &amp; Emblem Attributes</h3>
+        <p>[Your content goes here]</p>
+      </div>
+
+      <span id="item-counter" class="anchor" aria-hidden="true"></span>
+      <div class="subtopic" tabindex="-1" aria-labelledby="item-counter-heading">
+        <h3 id="item-counter-heading">Counter Items</h3>
+        <p>[Your content goes here]</p>
+      </div>
+
+      <span id="item-builds" class="anchor" aria-hidden="true"></span>
+      <div class="subtopic" tabindex="-1" aria-labelledby="item-builds-heading">
+        <h3 id="item-builds-heading">Best Builds</h3>
+        <p>[Your content goes here]</p>
+      </div>
+    </section>
+
+    <!-- GAMEPLAY -->
+    <span id="gameplay" class="anchor" aria-hidden="true"></span>
+    <section>
+      <h2>Gameplay &amp; Strategy</h2>
+      <ul>
+        <li><a href="#lane-rotation">Lane Rotation</a></li>
+        <li><a href="#spells">Battle Spells</a></li>
+        <li><a href="#teamfights">Teamfights &amp; Zoning</a></li>
+        <li><a href="#roles">Roles &amp; Objectives</a></li>
+      </ul>
+
+      <span id="lane-rotation" class="anchor" aria-hidden="true"></span>
+      <div class="subtopic" tabindex="-1" aria-labelledby="lane-rotation-heading">
+        <h3 id="lane-rotation-heading">Lane Rotation</h3>
+        <p>[Your content goes here]</p>
+      </div>
+
+      <span id="spells" class="anchor" aria-hidden="true"></span>
+      <div class="subtopic" tabindex="-1" aria-labelledby="spells-heading">
+        <h3 id="spells-heading">Battle Spells</h3>
+        <p>[Your content goes here]</p>
+      </div>
+
+      <span id="teamfights" class="anchor" aria-hidden="true"></span>
+      <div class="subtopic" tabindex="-1" aria-labelledby="teamfights-heading">
+        <h3 id="teamfights-heading">Teamfights &amp; Zoning</h3>
+        <p>[Your content goes here]</p>
+      </div>
+
+      <span id="roles" class="anchor" aria-hidden="true"></span>
+      <div class="subtopic" tabindex="-1" aria-labelledby="roles-heading">
+        <h3 id="roles-heading">Roles &amp; Objectives</h3>
+        <p>[Your content goes here]</p>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <span id="contact" class="anchor" aria-hidden="true"></span>
+    <section>
+      <h2>Contact Us</h2>
+      <p>Send us an email at <a href="mailto:mlbbportal@example.com" style="color:#ffd700;">mlbbportal@example.com</a></p>
+      <p>Or fill out this form to send us a message:</p>
+      <form>
+        <label for="name">Your Name:</label>
+        <input id="name" name="name" type="text" placeholder="Enter your name" required>
+
+        <label for="email">Your Email:</label>
+        <input id="email" name="email" type="email" placeholder="Enter your email" required>
+
+        <label for="message">Your Message:</label>
+        <textarea id="message" name="message" rows="5" placeholder="Write something cool here..."></textarea>
+
+        <button type="submit">Send Message</button>
+      </form>
+    </section>
+
+  </div>
+
+  <footer>
+    <p>&copy; 2025 MLBB Beginner's Portal | Designed for players by players</p>
+  </footer>
+
+</body>
+    </html>
